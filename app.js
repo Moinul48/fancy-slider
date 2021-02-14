@@ -78,7 +78,7 @@ const createSlider = () => {
   // restrict slider change duration less then 1 second
   const slideDuration = document.getElementById('duration');
   const duration = slideDuration.value || 1000;
-  if(duration >= 1000){
+  if(duration > 0){
     sliders.forEach(slide => {
       let item = document.createElement('div')
       item.className = "slider-item";
@@ -89,7 +89,7 @@ const createSlider = () => {
     })
   }
   else{
-    alert('Slider change duration at lest 1000 millisecond!!!')
+    alert('Slider change duration must be positive millisecond!!!')
     return;
   }
   
