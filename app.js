@@ -38,7 +38,7 @@ const getImages = (query) => {
     .then(response => response.json())
     .then(data => showImages(data.hits))
     .catch(err => console.log(err))
-  }, 2000);
+  }, 2000); //add setTimeout for show spinner
 }
 
 let slideIndex = 0;
