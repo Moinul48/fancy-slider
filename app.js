@@ -41,13 +41,14 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
+  element.classList.toggle('added');
  
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert('Hey, Already added !')
+    sliders.pop(img);
+    // alert('Hey, Already added !')
   }
 }
 var timer
@@ -71,6 +72,7 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
+  
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
