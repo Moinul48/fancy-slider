@@ -21,6 +21,7 @@ const showImages = (images) => {
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
   // show gallery title
+  toggleElement()
   galleryHeader.style.display = 'flex';
   images.forEach(image => {
     let div = document.createElement('div');
@@ -32,10 +33,12 @@ const showImages = (images) => {
 }
 
 const getImages = (query) => {
-  fetch(`https://pixabay.com/api/?key=${KEY}&q=${query}&image_type=photo`)
+  setTimeout(() =>{
+    fetch(`https://pixabay.com/api/?key=${KEY}&q=${query}&image_type=photo`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
     .catch(err => console.log(err))
+  }, 2000);
 }
 
 let slideIndex = 0;
@@ -129,6 +132,7 @@ searchBtn.addEventListener('click', function () {
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+  toggleElement();
 })
 
 sliderBtn.addEventListener('click', function () {
@@ -137,6 +141,6 @@ sliderBtn.addEventListener('click', function () {
 
 const toggleElement = () => {
   const spinner = document.getElementById("loading-spinner");
-
-
+  spinner.classList.toggle("d-none");
+  imagesArea.classList.toggle("d-none");
 }
