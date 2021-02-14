@@ -7,10 +7,13 @@ const sliderContainer = document.getElementById('sliders');
 // selected image 
 let sliders = [];
 
+// Search through click
+document.getElementById("search").addEventListener("keypress", function(event) {
+  if (event.key === 'Enter')
+  document.getElementById("search-btn").click();
+});
 
-// If this key doesn't work
-// Find the name in the url and go to their website
-// to create your own api key
+// My api key
 const KEY = '20269262-74833d18dc4a6ea924b65e458';
 
 // show images 
@@ -20,7 +23,7 @@ const showImages = (images) => {
   // show gallery title
   galleryHeader.style.display = 'flex';
   images.forEach(image => {
-    let div = document.createElement('images-div');
+    let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
