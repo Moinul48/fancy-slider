@@ -57,9 +57,15 @@ var timer
 const createSlider = () => {
   // check slider image length
   if (sliders.length < 2) {
-    alert('Select at least 2 image.')
+    alert('Select at least 2 image for slider.')
     return;
   }
+
+  // show no of images select for slider
+  let count = 0
+  count = sliders.length;
+  alert(`You have selected ${count} images.`)
+
   // crate slider previous next area
   sliderContainer.innerHTML = '';
   const prevNext = document.createElement('div');
