@@ -62,9 +62,10 @@ const createSlider = () => {
   }
 
   // show no of images select for slider
+ 
   let count = 0
   count = sliders.length;
-  alert(`You have selected ${count} images.`)
+  alert(`You have selected ${count} images for slider.`)
 
   // crate slider previous next area
   sliderContainer.innerHTML = '';
@@ -81,7 +82,7 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
 
-  // restrict slider change duration less then 1 second
+  // restrict slider change duration less then 0 millisecond
   const slideDuration = document.getElementById('duration');
   const duration = slideDuration.value || 1000;
   if(duration > 0){
